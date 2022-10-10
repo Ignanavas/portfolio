@@ -34,4 +34,4 @@ como es manejar caja chica, venta de insumos, entre otros.
 Actualmente me encantaria Analizar los sistemas, diseñar las nesecidades o requerimientos, armar los diagramas de datos o 
 Analizar los datos con python, crear graficos y relevar informacion
 ## 🛠 Skills
-Python, Javascirpt , Postgresql , Django, Linux, Google Sheets, Pandas, Numpy , Ruby
+Python, Javascirpt , Postgresql , Django, Linux, Google Sheets, Ruby
