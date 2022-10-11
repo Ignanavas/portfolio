@@ -10,9 +10,8 @@ venv/
 
 # Database
 db.sqlite3
+secret_key.txt
 
-# Static folder at project root
-/static/
 
 # macOS
 ._*
