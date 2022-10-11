@@ -21,9 +21,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open ('myvenv/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
-
+#with open ('myvenv/secret_key.txt') as f:
+    #SECRET_KEY = f.read().strip()
+SECRET_KEY = 'django-insecure-ky@ee2knn1guwnqzj#2qak4&lndim*v4ap0_1qrv-l_ne@58)r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
