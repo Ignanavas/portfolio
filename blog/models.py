@@ -1,9 +1,9 @@
 from email.policy import default
-from turtle import title
 from unittest.util import _MAX_LENGTH
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+
 # Create your models here.
 
 class Post(models.Model):
