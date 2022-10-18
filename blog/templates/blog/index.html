@@ -1,82 +1,26 @@
+{% extends 'blog/base.html' %}
+{% block expeciencia %}
+                    <div class="experiencia_laboral">
+                    {% for post in posts %}
+                        {% if post.tipo_post == 'Exp'%}
+                        <article class="post">
+                            <time class="date">
+                                {{ post.published_date }}
+                            </time>
+                            
+                            <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                            <time class='date'>
+                                {{post.create_date}}
+                            </time>
+                            <time class='date'>
+                                {{post.create_date}}
+                            </time>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        
+                        
 
-    <html>
-    <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-        <style type="text/css">
-        @import url('https://themes.googleusercontent.com/fonts/css?kit=RFda8w1V0eDZheqfcyQ4EGb3DKsRMD34dqg1gT8Z-p6isjtAVhoKeKPV_uAAgBOSk3k702ZOKiLJc3WVjuplzPesZW2xOQ-xsNqO47m55DA');
-        ol{margin:0;padding:0}table td,
-        table th{padding:0}
-        .c34{color:#000000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:36pt;font-family:"Merriweather";font-style:normal}
-        .c4{color:#000000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Merriweather";font-style:normal}
-        .c21{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:9pt;font-family:"Open Sans";font-style:normal}
-        .c16{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Merriweather";font-style:normal}
-        .c33{color:#000000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:9pt;font-family:"Open Sans";font-style:normal}
-        .c0{color:#2079c7;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:9pt;font-family:"Open Sans";font-style:normal}
-        .c10{color:#666666;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:8pt;font-family:"Open Sans";font-style:normal}
-        .c12{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Merriweather";font-style:italic}
-        .c5{color:#666666;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:9pt;font-family:"Merriweather";font-style:normal}
-        .c19{padding-top:2.2pt;padding-bottom:0pt;line-height:1.0;text-align:left;height:11pt}
-        .c2{padding-top:0.5pt;padding-bottom:0pt;line-height:0.9718332886695862;text-align:left;height:11pt}
-        .c22{padding-top:0pt;padding-bottom:0pt;line-height:1.170365333557129;text-align:left}
-        .c7{padding-top:0.5pt;padding-bottom:0pt;line-height:0.9718332886695862;text-align:left}
-        .c24{padding-top:16pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c17{padding-top:6.1pt;padding-bottom:0pt;line-height:1.3073471784591675;text-align:left}
-        .c27{padding-top:17.7pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c8{padding-top:15.9pt;padding-bottom:0pt;line-height:1.003386378288269;text-align:left}
-        .c28{padding-top:33.7pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c1{font-size:9pt;font-family:"Open Sans";color:#2079c7;font-weight:700}
-        .c13{padding-top:47.1pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c23{font-size:8pt;font-family:"Open Sans";color:#666666;font-weight:400}
-        .c6{padding-top:9.7pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c18{padding-top:33.5pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c14{font-size:9pt;font-family:"Merriweather";color:#666666;font-weight:400}
-        .c36{padding-top:2.2pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c20{padding-top:15.9pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c26{padding-top:19.4pt;padding-bottom:0pt;line-height:1.003386378288269;text-align:left}
-        .c9{padding-top:5.7pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c35{padding-top:5.5pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c15{padding-top:2.2pt;padding-bottom:0pt;line-height:1.1800832748413086;text-align:left}
-        .c30{padding-top:16.9pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c3{padding-top:6.1pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c29{padding-top:19.5pt;padding-bottom:0pt;line-height:1.0;text-align:left}
-        .c11{background-color:#ffffff;max-width:485.9pt;padding:48.4pt 75.6pt 124.6pt 50.6pt}
-        .c32{font-family:"Merriweather";font-style:italic;font-weight:400}.c25{height:11pt}
-        .c31{background-color:#e8eaed}
-        .title{padding-top:24pt;color:#000000;font-weight:700;font-size:36pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}
-        .subtitle{padding-top:18pt;color:#666666;font-size:24pt;padding-bottom:4pt;font-family:"Georgia";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}
-        li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}
-        h1{padding-top:24pt;color:#000000;font-weight:700;font-size:24pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}
-        h2{padding-top:18pt;color:#000000;font-weight:700;font-size:18pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}
-        h3{padding-top:14pt;color:#000000;font-weight:700;font-size:14pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}
-        h4{padding-top:12pt;color:#000000;font-weight:700;font-size:12pt;padding-bottom:2pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}
-        h5{padding-top:11pt;color:#000000;font-weight:700;font-size:11pt;padding-bottom:2pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}
-        h6{padding-top:10pt;color:#000000;font-weight:700;font-size:10pt;padding-bottom:2pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}</style></head>
-        <body class="c11 doc-content"><p class="c22"><span class="c34">Ignacio Vallejos</span></p>
-            <p class="c22"><span class="c21">Computer Engineering Student (Present)</span></p>
-            <p class="c22 c25"><span class="c0"></span></p>
-            <p class="c22"><span class="c0">EXPERIENCIA </span></p>
-            <p class="c8"><span class="c4">MODOC S.A, </span><span class="c16">Posadas &mdash; </span>
-            <span class="c32">Operations Manager</span></p><p class="c9"><span class="c10">F</span>
-            <span class="c23">EBRUARY</span><span class="c10">&nbsp;2021 - PRESENT </span></p>
-            <p class="c17">
-            <span class="c14">In charge of coordinating the digitization of customs documents, coordination with clients of delivery and reception of customs documents and monitoring of customs files.</span></p><p class="c30">
-            <span class="c4">MODOC S.A., </span><span class="c16">Posadas &mdash; </span>
-            <span class="c12">Data Entry </span></p><p class="c35"><span class="c23">AUGUST </span>
-            <span class="c10">2020 -</span><span class="c23">&nbsp;JANUARY</span><span class="c10">&nbsp;2021 </span></p>
-            <p class="c3"><span class="c14">Loading of customs documents to the system via a kodak brand scanner.</span></p>
-            <p class="c18"><span class="c0">EDUCACI&Oacute;N </span></p><p class="c20"><span class="c4">Universidad Gaston Dachary, </span>
-            <span class="c16">Posadas </span></p><p class="c35">
-            <span class="c10">M</span><span class="c23">ARCH</span>
-            <span class="c10">&nbsp;2015 - PRESENT </span></p><p class="c3">
-            <span class="c14">Computer Engineering Student SI ESTAMOS ARRUINANDO PRODUCCION</span><span class="c5">&nbsp;</span></p>
-            <p class="c26"><span class="c4">Instituto Cristiano Rep&uacute;blica Argentina, </span>
-            <span class="c16">Posadas &mdash; </span><span class="c12">Perito Mercantil </span></p>
-            <p class="c9"><span class="c10">2002 - 2014 </span></p><p class="c3"><span class="c1">PROJECTS</span>
-            <span class="c0">&nbsp;</span></p><p class="c20"><span class="c4">Systems Analyst:</span></p>
-            <p class="c20"><span class="c4">La cueva del Gaming (2017) </span><span class="c16">: </span></p>
-            <p class="c7"><span class="c5">Analysis of the premises, with data diagrams, networks and jobs. Interviews with the owner and staff of the company.</span></p><p class="c7"><span class="c14">Survey of problems and needs for a new system. </span><span class="c5">&nbsp;</span></p><p class="c7"><span class="c5">Link : </span><span class="c5 c31">Analisis de La cueva del Gaming.docx.pdf</span><span class="c5">&nbsp;</span></p><p class="c2"><span class="c5"></span></p><p class="c19"><span class="c21"></span></p><p class="c36"><span class="c33">(54) 376 154274827 </span></p><p class="c15"><span class="c33">ignaciovallejosnavas@gmail. com </span></p><p class="c13"><span class="c1">SKILLS</span></p><p class="c24"><span class="c14">Functional Systems Analyst</span></p><p class="c27"><span class="c5">Python </span></p><p class="c6"><span class="c5">HTML </span></p><p class="c6"><span class="c5">Postgresql </span></p><p class="c6"><span class="c5">Javascript </span></p><p class="c6"><span class="c5">Google Sheets </span></p><p class="c6"><span class="c5">Linux </span></p><p class="c28"><span class="c1">LANGUAGES</span>
-            <span class="c0">&nbsp;</span></p><p class="c24">
-            <span class="c14">ENGLISH</span> </p><p class="c29"><span class="c14">SPANISH</span></p></body></html>
-
-
-{{ posts }}
+                        </article>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+{% endblock %}
